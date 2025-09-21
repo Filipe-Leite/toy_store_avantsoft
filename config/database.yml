@@ -1,0 +1,19 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: toy_store_avantsoft_development
+
+test:
+  <<: *default
+  database: toy_store_avantsoft_test
+
+production:
+  <<: *default
+  database: toy_store_avantsoft_production
+  username: toy_store_avantsoft
+  password: <%= ENV["TOY_STORE_AVANTSOFT_DATABASE_PASSWORD"] %>
